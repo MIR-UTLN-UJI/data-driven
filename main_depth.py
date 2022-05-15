@@ -37,14 +37,10 @@ import time
 import torchvision
 import urllib
 import zipfile
-
-# from 3d-ken-burns.common import *
-# from 3d-ken-burns.models.disparity-estimation import *
-# from 3d-ken-burns.models.disparity-adjustment import *
-# from 3d-ken-burns.models.disparity-refinement import *
-# from 3d-ken-burns.models.pointcloud-inpainting import *
 ##########################################################
 
+
+# Import the files for the depth estimator
 exec(open('./3d-ken-burns/common.py', 'r').read())
 
 exec(open('./3d-ken-burns/models/disparity-estimation.py', 'r').read())
@@ -52,23 +48,13 @@ exec(open('./3d-ken-burns/models/disparity-adjustment.py', 'r').read())
 exec(open('./3d-ken-burns/models/disparity-refinement.py', 'r').read())
 exec(open('./3d-ken-burns/models/pointcloud-inpainting.py', 'r').read())
 
+# Create a class to use Depth Estimator Network (DEN)
 class Depthestim:
     def __init__(self):
         assert(int(str('').join(torch.__version__.split('.')[0:2])) >= 12) # requires at least pytorch version 1.2.0
 
-        # torch.set_grad_enabled(False) # make sure to not compute gradients for computational performance
 
-        # torch.backends.cudnn.enabled = True # make sure to use cudnn for computational performance
-
-        # objCommon = {}
-
-        # exec(open('./3d-ken-burns/common.py', 'r').read())
-
-        # exec(open('./3d-ken-burns/models/disparity-estimation.py', 'r').read())
-        # exec(open('./3d-ken-burns/models/disparity-adjustment.py', 'r').read())
-        # exec(open('./3d-ken-burns/models/disparity-refinement.py', 'r').read())
-        # exec(open('./3d-ken-burns/models/pointcloud-inpainting.py', 'r').read())
-
+    # Return the files names given the dataset folder
     def get_file_names(self, dataset_folder):
         raw_data_paths = []
         for file in os.listdir(dataset_folder):
@@ -77,15 +63,22 @@ class Depthestim:
         return raw_data_paths
 
     def get_x_min_max(self, base_path, image_paths):
+        '''
+        Compute the minimum and maximum depth in the image using DEN
+        '''
         x_min = []
         x_max = []
         with torch.no_grad():
             for image_path in image_paths:
-                npyImage = cv2.imread(filename=base_path + image_path, flags=cv2.IMREAD_COLOR)
+                # Read the image
+                npyImage = cv2.imread(filename=base_path + '/' + image_path, flags=cv2.IMREAD_COLOR)
             
+                # Estimate the focal length
                 fltFocal = max(npyImage.shape[1], npyImage.shape[0]) / 2.0
+                # The baseline of the camera used for training the DEN
                 fltBaseline = 40.0
                 
+                # Get the depth image from the input image using DEN
                 tenImage = torch.FloatTensor(np.ascontiguousarray(npyImage.transpose(2, 0, 1)[None, :, :, :].astype(np.float32) * (1.0 / 255.0))).cuda()
                 tenDisparity = disparity_estimation(tenImage)
                 tenDisparity = disparity_adjustment(tenImage, tenDisparity)
@@ -94,15 +87,19 @@ class Depthestim:
                 tenDepth = (fltFocal * fltBaseline) / (tenDisparity + 0.0000001)
 
                 npyDisparity = tenDisparity[0, 0, :, :].cpu().numpy()
+
                 npyDepth = tenDepth[0, 0, :, :].cpu().numpy()
 
+                # sort the depth data
                 depth_data = np.sort(npyDepth, axis=None)
-                # print(f'depth map shape is {depth_data.shape}')
 
                 depth_count = depth_data.shape[0]
 
-                x_min.append(depth_data[int(depth_count/3)])
-                x_max.append(depth_data[int(depth_count/9)])
+                # Get the x_min and x_max value of the image. 
+                # Instead of taking the end points, we took the values within the range
+                # to avoid the sky and very close points 
+                x_min.append(depth_data[int(depth_count*0.3)])
+                x_max.append(depth_data[int(depth_count*0.9)])
         xmin = torch.unsqueeze(torch.unsqueeze(torch.FloatTensor(x_min), axis=1), axis=1)
         xmax = torch.unsqueeze(torch.unsqueeze(torch.FloatTensor(x_max), axis=1), axis=1)
         return xmin, xmax
@@ -146,7 +143,7 @@ if __name__ == '__main__':
     depth_estimator = Depthestim()
 
     # Load model
-    model = models.load_model(args.weights)
+    model = models.load_model(args.weights, device=device)
     model.train()
     model.to(device)
 
@@ -227,7 +224,9 @@ if __name__ == '__main__':
 
             # Estimate the pose from the image
             batch['w_t_chat'], batch['chat_q_w'] = model(batch['image']).split([3, 4], dim=1)
-            x_min, x_max = depth_estimator.get_x_min_max('/mundus/vgarg872/Documents/machine-perception/homography/datasets/ShopFacade/', batch['image_file'])
+
+            # Get the x_min and x_max
+            x_min, x_max = depth_estimator.get_x_min_max(args.path, batch['image_file'])
             # print(f'x min is {x_min} and x max is {x_max}')
             # Computes useful data for our batch
             # - Normalized quaternion
