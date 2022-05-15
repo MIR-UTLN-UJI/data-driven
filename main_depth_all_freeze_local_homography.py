@@ -63,6 +63,8 @@ if __name__ == '__main__':
 
     
     #print("***************************************")
+        # Here we just modified the very first layer to take the depth input as well
+
     model.features[0][0]=torch.nn.Conv2d(4, 32, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
     #print(model.features[0][0])
     #print(model)

@@ -63,6 +63,7 @@ if __name__ == '__main__':
 
     
     #print("***************************************")
+    # Here we just modified the very first layer to take the depth input as well
     model.features[0][0]=torch.nn.Conv2d(4, 32, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
     #print(model.features[0][0])
     #print(model)
@@ -192,7 +193,7 @@ if __name__ == '__main__':
                 #wandb.log({"q_errors": q_errors})
                 with open(log_file_path, mode='a') as log_file:
                     log_poses(log_file, batch, epoch, 'train')
-        wandb.log({"epoch loss": epoch_loss})
+        wandb.log({"epoch loss": epoch_loss}) #logging the loss for weights and biases 
         #wandb.log({"t_errors": np.mean(t_errors)})
         #wandb.log({"q_errors": np.mean(q_errors)})
         #wandb.log({"reprojection_errors": reprojection_errors})
