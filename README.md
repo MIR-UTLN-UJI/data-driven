@@ -46,12 +46,14 @@ There are two ways to do so:
 1- Generating the depth images from the depth estimation network and then merge them with the original dataset
 
 2- Downloading the modified dataset from google drive directly by simple running these commands:
-
+```bash
 gdown https://drive.google.com/uc?id=1Nnz9SNve7ZPKnextdALXDJACrlNU8Bio
-unzip ShopFacade_depth.zip
-rm ShopFacade_depth.zip
 
-or perhaps put them in bash scrips and put #!/bin/bash in the first line so that you can run it in more automatic way.                   
+unzip ShopFacade_depth.zip
+
+rm ShopFacade_depth.zip
+``` 
+or perhaps put them in a bash script and then put ```bash #!/bin/bash ``` in the first line so that you can run it in more automatic way.                   
 
 
 ## Modified models to take RGB-D input instead of RGB only
