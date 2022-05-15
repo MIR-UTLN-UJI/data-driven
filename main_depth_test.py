@@ -37,8 +37,10 @@ import time
 import torchvision
 import urllib
 import zipfile
+##########################################################
 
 
+# Import the files for the depth estimator
 exec(open('./3d-ken-burns/common.py', 'r').read())
 
 exec(open('./3d-ken-burns/models/disparity-estimation.py', 'r').read())
@@ -50,10 +52,7 @@ class Depthestim:
     def __init__(self):
         assert(int(str('').join(torch.__version__.split('.')[0:2])) >= 12) # requires at least pytorch version 1.2.0
 
-        # torch.set_grad_enabled(False) # make sure to not compute gradients for computational performance
-
-        # torch.backends.cudnn.enabled = True # make sure to use cudnn for computational performance
-
+    # Return the files names given the dataset folder
     def get_file_names(self, dataset_folder):
         raw_data_paths = []
         for file in os.listdir(dataset_folder):
@@ -66,11 +65,15 @@ class Depthestim:
         x_max = []
         with torch.no_grad():
             for image_path in image_paths:
-                npyImage = cv2.imread(filename=base_path + image_path, flags=cv2.IMREAD_COLOR)
+                # Read the image
+                npyImage = cv2.imread(filename=base_path + '/' + image_path, flags=cv2.IMREAD_COLOR)
             
+                # Estimate the focal length
                 fltFocal = max(npyImage.shape[1], npyImage.shape[0]) / 2.0
+                # The baseline of the camera used for training the DEN
                 fltBaseline = 40.0
                 
+                # Get the depth image from the input image using DEN
                 tenImage = torch.FloatTensor(np.ascontiguousarray(npyImage.transpose(2, 0, 1)[None, :, :, :].astype(np.float32) * (1.0 / 255.0))).cuda()
                 tenDisparity = disparity_estimation(tenImage)
                 tenDisparity = disparity_adjustment(tenImage, tenDisparity)
@@ -81,11 +84,14 @@ class Depthestim:
                 npyDisparity = tenDisparity[0, 0, :, :].cpu().numpy()
                 npyDepth = tenDepth[0, 0, :, :].cpu().numpy()
 
+                # sort the depth data
                 depth_data = np.sort(npyDepth, axis=None)
-                # print(f'depth map shape is {depth_data.shape}')
 
                 depth_count = depth_data.shape[0]
 
+                # Get the x_min and x_max value of the image. 
+                # Instead of taking the end points, we took the values within the range
+                # to avoid the sky and very close points 
                 x_min.append(depth_data[int(depth_count/3)])
                 x_max.append(depth_data[int(depth_count/9)])
         xmin = torch.unsqueeze(torch.unsqueeze(torch.FloatTensor(x_min), axis=1), axis=1)
@@ -214,9 +220,13 @@ if __name__ == '__main__':
             # Compute test poses estimations
             batch = batch_to_device(batch, device)
             batch['w_t_chat'], batch['chat_q_w'] = model(batch['image']).split([3, 4], dim=1)
-            x_min, x_max = depth_estimator.get_x_min_max('/mundus/vgarg872/Documents/machine-perception/homography/datasets/ShopFacade/', batch['image_file'])
+            x_min, x_max = depth_estimator.get_x_min_max(args.path, batch['image_file'])
+
+            # Move depth range data from tensor to numpy
             x_min = x_min.cpu().detach().numpy()
             x_max = x_max.cpu().detach().numpy()
+
+            # Retrieve the ground truth of depth range and move it to numpy
             batch_x_min = batch['xmin'].view(-1, 1, 1).cpu().detach().numpy()
             batch_x_max = batch['xmax'].view(-1, 1, 1).cpu().detach().numpy()
             batch_compute_utils(batch)
@@ -231,18 +241,22 @@ if __name__ == '__main__':
             q_errors.append(batch_q_errors)
             reprojection_errors += batch_reprojection_errors
 
+            # Compute the mean intensities for each image
+            # It is computed by normalising the mean of the image over the batch
             mean_batch_intensities = (torch.mean(batch['image'], dim = [1, 2, 3]) - torch.min(batch['image']))/(torch.max(batch['image']) - torch.min(batch['image']))
+            
+            # Record the data for debugging
             for i in range(len(batch)):
-                # img_names += [(batch['image_file'][i], batch_reprojection_errors[i].mean(), batch['image'][i])]
                 img_names += [(batch['image_file'][i], batch_reprojection_errors[i].mean().cpu().detach().numpy(), mean_batch_intensities[i].cpu().detach().numpy(), x_min[i], x_max[i], batch_x_min[i], batch_x_max[i])]
+        
+        # Sort the images according to the square reprojection error
         imgs_data = np.array(sorted(img_names, key = lambda x: x[1].item()))
         
-        # mean_intensities = [torch.mean(img_data[2], dim = [0, 1, 2]) for img_data in imgs_data ]
-        print(f'Mean Intensities are {imgs_data}')
-        # print(f'Depth Data {depth_estimates}')
+        # Save the debugging data
+        np.save('intensity_data.npy',imgs_data)
+
         # Log test errors
         log_errors(t_errors, q_errors, reprojection_errors, writer, epoch, 'test')
-        np.save('intensity_data.npy',imgs_data)
         # Log loss parameters, if there are any
         for p_name, p in criterion.named_parameters():
             writer.add_scalar(p_name, p, epoch)
