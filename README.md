@@ -53,7 +53,7 @@ unzip ShopFacade_depth.zip
 
 rm ShopFacade_depth.zip
 ``` 
-or perhaps put them in a bash script and then put ```bash #!/bin/bash ``` in the first line so that you can run it in more automatic way.                   
+or perhaps put them in a bash script and then put ``` #!/bin/bash ``` in the first line so that you can run it in more automatic way.                   
 
 
 ## Modified models to take RGB-D input instead of RGB only
