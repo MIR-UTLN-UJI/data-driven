@@ -58,3 +58,9 @@ We changed the the input layer of the model by adding another channel in the fir
 7-original_local_homography.py: is to run the original model just to see its performance and compare it with the results of our modified models. The loss function used is local homography 
 
 8-original_global_homography.py: is to run the original model just to see its performance and compare it with the results of our modified models. The loss function used is global homography 
+
+We trained all of the above models for 500 epochs. The obtained events files are saved in all_logs folder which can be used by tensorboard to visalize and analyze the results by simply navigating to all_logs folder and then write: tensorboard --logdir <name of the log folder>
+ 
+We also created bash files to be sent to the cluster to run these models. These bash scipts can be found in jobs folder
+
+Thank you
