@@ -1,0 +1,171 @@
+2022-05-17 02:32:33,880 INFO    MainThread:4171291 [internal.py:wandb_internal():90] W&B internal server running at pid: 4171291, started at: 2022-05-17 02:32:33.878977
+2022-05-17 02:32:33,881 INFO    WriterThread:4171291 [datastore.py:open_for_write():75] open: /baie/nfs-cluster-1/mundus/aelsayed824/data-driven/wandb/run-20220517_023232-u1w71wi3/run-u1w71wi3.wandb
+2022-05-17 02:32:33,883 DEBUG   SenderThread:4171291 [sender.py:send():232] send: header
+2022-05-17 02:32:33,883 DEBUG   SenderThread:4171291 [sender.py:send():232] send: run
+2022-05-17 02:32:34,236 DEBUG   HandlerThread:4171291 [handler.py:handle_request():141] handle_request: check_version
+2022-05-17 02:32:34,243 INFO    SenderThread:4171291 [dir_watcher.py:__init__():166] watching files in: /baie/nfs-cluster-1/mundus/aelsayed824/data-driven/wandb/run-20220517_023232-u1w71wi3/files
+2022-05-17 02:32:34,243 INFO    SenderThread:4171291 [sender.py:_start_run_threads():811] run started: u1w71wi3 with start time 1652747552
+2022-05-17 02:32:34,243 DEBUG   SenderThread:4171291 [sender.py:send():232] send: summary
+2022-05-17 02:32:34,245 INFO    SenderThread:4171291 [sender.py:_save_file():946] saving file wandb-summary.json with policy end
+2022-05-17 02:32:34,245 DEBUG   SenderThread:4171291 [sender.py:send_request():246] send_request: check_version
+2022-05-17 02:32:34,322 DEBUG   HandlerThread:4171291 [handler.py:handle_request():141] handle_request: run_start
+2022-05-17 02:32:34,327 DEBUG   HandlerThread:4171291 [meta.py:__init__():35] meta init
+2022-05-17 02:32:34,327 DEBUG   HandlerThread:4171291 [meta.py:__init__():49] meta init done
+2022-05-17 02:32:34,327 DEBUG   HandlerThread:4171291 [meta.py:probe():209] probe
+2022-05-17 02:32:34,334 DEBUG   HandlerThread:4171291 [meta.py:_setup_git():199] setup git
+2022-05-17 02:32:34,357 DEBUG   HandlerThread:4171291 [meta.py:_setup_git():206] setup git done
+2022-05-17 02:32:34,357 DEBUG   HandlerThread:4171291 [meta.py:_save_pip():53] save pip
+2022-05-17 02:32:34,359 DEBUG   HandlerThread:4171291 [meta.py:_save_pip():67] save pip done
+2022-05-17 02:32:34,360 DEBUG   HandlerThread:4171291 [meta.py:_save_conda():74] save conda
+2022-05-17 02:32:35,247 INFO    Thread-7  :4171291 [dir_watcher.py:_on_file_created():213] file/dir created: /baie/nfs-cluster-1/mundus/aelsayed824/data-driven/wandb/run-20220517_023232-u1w71wi3/files/wandb-summary.json
+2022-05-17 02:32:35,247 INFO    Thread-7  :4171291 [dir_watcher.py:_on_file_created():213] file/dir created: /baie/nfs-cluster-1/mundus/aelsayed824/data-driven/wandb/run-20220517_023232-u1w71wi3/files/requirements.txt
+2022-05-17 02:32:35,248 INFO    Thread-7  :4171291 [dir_watcher.py:_on_file_created():213] file/dir created: /baie/nfs-cluster-1/mundus/aelsayed824/data-driven/wandb/run-20220517_023232-u1w71wi3/files/conda-environment.yaml
+2022-05-17 02:32:40,251 INFO    Thread-7  :4171291 [dir_watcher.py:_on_file_created():213] file/dir created: /baie/nfs-cluster-1/mundus/aelsayed824/data-driven/wandb/run-20220517_023232-u1w71wi3/files/output.log
+2022-05-17 02:32:41,904 DEBUG   HandlerThread:4171291 [meta.py:_save_conda():84] save conda done
+2022-05-17 02:32:41,904 DEBUG   HandlerThread:4171291 [meta.py:probe():247] probe done
+2022-05-17 02:32:42,006 DEBUG   HandlerThread:4171291 [handler.py:handle_request():141] handle_request: stop_status
+2022-05-17 02:32:42,007 DEBUG   SenderThread:4171291 [sender.py:send_request():246] send_request: stop_status
+2022-05-17 02:32:42,194 DEBUG   SenderThread:4171291 [sender.py:send():232] send: telemetry
+2022-05-17 02:32:42,195 DEBUG   SenderThread:4171291 [sender.py:send():232] send: telemetry
+2022-05-17 02:32:42,195 DEBUG   SenderThread:4171291 [sender.py:send():232] send: files
+2022-05-17 02:32:42,195 INFO    SenderThread:4171291 [sender.py:_save_file():946] saving file wandb-metadata.json with policy now
+2022-05-17 02:32:42,256 INFO    Thread-7  :4171291 [dir_watcher.py:_on_file_modified():226] file/dir modified: /baie/nfs-cluster-1/mundus/aelsayed824/data-driven/wandb/run-20220517_023232-u1w71wi3/files/output.log
+2022-05-17 02:32:42,256 INFO    Thread-7  :4171291 [dir_watcher.py:_on_file_modified():226] file/dir modified: /baie/nfs-cluster-1/mundus/aelsayed824/data-driven/wandb/run-20220517_023232-u1w71wi3/files/conda-environment.yaml
+2022-05-17 02:32:42,256 INFO    Thread-7  :4171291 [dir_watcher.py:_on_file_created():213] file/dir created: /baie/nfs-cluster-1/mundus/aelsayed824/data-driven/wandb/run-20220517_023232-u1w71wi3/files/wandb-metadata.json
+2022-05-17 02:32:42,934 INFO    Thread-11 :4171291 [upload_job.py:push():137] Uploaded file /tmp/tmpu7h84c5dwandb/175tb232-wandb-metadata.json
+2022-05-17 02:32:44,259 INFO    Thread-7  :4171291 [dir_watcher.py:_on_file_modified():226] file/dir modified: /baie/nfs-cluster-1/mundus/aelsayed824/data-driven/wandb/run-20220517_023232-u1w71wi3/files/output.log
+2022-05-17 02:32:46,260 INFO    Thread-7  :4171291 [dir_watcher.py:_on_file_modified():226] file/dir modified: /baie/nfs-cluster-1/mundus/aelsayed824/data-driven/wandb/run-20220517_023232-u1w71wi3/files/output.log
+2022-05-17 02:32:48,262 INFO    Thread-7  :4171291 [dir_watcher.py:_on_file_modified():226] file/dir modified: /baie/nfs-cluster-1/mundus/aelsayed824/data-driven/wandb/run-20220517_023232-u1w71wi3/files/output.log
+2022-05-17 02:32:50,264 INFO    Thread-7  :4171291 [dir_watcher.py:_on_file_modified():226] file/dir modified: /baie/nfs-cluster-1/mundus/aelsayed824/data-driven/wandb/run-20220517_023232-u1w71wi3/files/output.log
+2022-05-17 02:32:52,266 INFO    Thread-7  :4171291 [dir_watcher.py:_on_file_modified():226] file/dir modified: /baie/nfs-cluster-1/mundus/aelsayed824/data-driven/wandb/run-20220517_023232-u1w71wi3/files/output.log
+2022-05-17 02:32:54,269 INFO    Thread-7  :4171291 [dir_watcher.py:_on_file_modified():226] file/dir modified: /baie/nfs-cluster-1/mundus/aelsayed824/data-driven/wandb/run-20220517_023232-u1w71wi3/files/output.log
+2022-05-17 02:32:56,271 INFO    Thread-7  :4171291 [dir_watcher.py:_on_file_modified():226] file/dir modified: /baie/nfs-cluster-1/mundus/aelsayed824/data-driven/wandb/run-20220517_023232-u1w71wi3/files/output.log
+2022-05-17 02:32:57,200 DEBUG   HandlerThread:4171291 [handler.py:handle_request():141] handle_request: stop_status
+2022-05-17 02:32:57,200 DEBUG   SenderThread:4171291 [sender.py:send_request():246] send_request: stop_status
+2022-05-17 02:32:58,273 INFO    Thread-7  :4171291 [dir_watcher.py:_on_file_modified():226] file/dir modified: /baie/nfs-cluster-1/mundus/aelsayed824/data-driven/wandb/run-20220517_023232-u1w71wi3/files/output.log
+2022-05-17 02:33:00,274 INFO    Thread-7  :4171291 [dir_watcher.py:_on_file_modified():226] file/dir modified: /baie/nfs-cluster-1/mundus/aelsayed824/data-driven/wandb/run-20220517_023232-u1w71wi3/files/output.log
+2022-05-17 02:33:02,276 INFO    Thread-7  :4171291 [dir_watcher.py:_on_file_modified():226] file/dir modified: /baie/nfs-cluster-1/mundus/aelsayed824/data-driven/wandb/run-20220517_023232-u1w71wi3/files/output.log
+2022-05-17 02:33:02,716 DEBUG   SenderThread:4171291 [sender.py:send():232] send: stats
+2022-05-17 02:33:04,279 INFO    Thread-7  :4171291 [dir_watcher.py:_on_file_modified():226] file/dir modified: /baie/nfs-cluster-1/mundus/aelsayed824/data-driven/wandb/run-20220517_023232-u1w71wi3/files/output.log
+2022-05-17 02:33:05,280 INFO    Thread-7  :4171291 [dir_watcher.py:_on_file_modified():226] file/dir modified: /baie/nfs-cluster-1/mundus/aelsayed824/data-driven/wandb/run-20220517_023232-u1w71wi3/files/config.yaml
+2022-05-17 02:33:06,283 INFO    Thread-7  :4171291 [dir_watcher.py:_on_file_modified():226] file/dir modified: /baie/nfs-cluster-1/mundus/aelsayed824/data-driven/wandb/run-20220517_023232-u1w71wi3/files/output.log
+2022-05-17 02:33:08,285 INFO    Thread-7  :4171291 [dir_watcher.py:_on_file_modified():226] file/dir modified: /baie/nfs-cluster-1/mundus/aelsayed824/data-driven/wandb/run-20220517_023232-u1w71wi3/files/output.log
+2022-05-17 02:33:08,455 DEBUG   SenderThread:4171291 [sender.py:send():232] send: telemetry
+2022-05-17 02:33:10,288 INFO    Thread-7  :4171291 [dir_watcher.py:_on_file_modified():226] file/dir modified: /baie/nfs-cluster-1/mundus/aelsayed824/data-driven/wandb/run-20220517_023232-u1w71wi3/files/output.log
+2022-05-17 02:33:10,917 DEBUG   HandlerThread:4171291 [handler.py:handle_request():141] handle_request: poll_exit
+2022-05-17 02:33:10,917 DEBUG   SenderThread:4171291 [sender.py:send():232] send: exit
+2022-05-17 02:33:10,918 INFO    SenderThread:4171291 [sender.py:send_exit():368] handling exit code: 1
+2022-05-17 02:33:10,918 INFO    SenderThread:4171291 [sender.py:send_exit():370] handling runtime: 36
+2022-05-17 02:33:10,922 INFO    SenderThread:4171291 [sender.py:_save_file():946] saving file wandb-summary.json with policy end
+2022-05-17 02:33:10,923 INFO    SenderThread:4171291 [sender.py:send_exit():376] send defer
+2022-05-17 02:33:10,923 DEBUG   SenderThread:4171291 [sender.py:send_request():246] send_request: poll_exit
+2022-05-17 02:33:10,923 DEBUG   HandlerThread:4171291 [handler.py:handle_request():141] handle_request: defer
+2022-05-17 02:33:10,923 INFO    HandlerThread:4171291 [handler.py:handle_request_defer():164] handle defer: 0
+2022-05-17 02:33:10,923 DEBUG   SenderThread:4171291 [sender.py:send_request():246] send_request: defer
+2022-05-17 02:33:10,923 INFO    SenderThread:4171291 [sender.py:send_request_defer():385] handle sender defer: 0
+2022-05-17 02:33:10,923 INFO    SenderThread:4171291 [sender.py:transition_state():389] send defer: 1
+2022-05-17 02:33:10,924 DEBUG   HandlerThread:4171291 [handler.py:handle_request():141] handle_request: defer
+2022-05-17 02:33:10,924 INFO    HandlerThread:4171291 [handler.py:handle_request_defer():164] handle defer: 1
+2022-05-17 02:33:11,006 DEBUG   SenderThread:4171291 [sender.py:send_request():246] send_request: defer
+2022-05-17 02:33:11,006 INFO    SenderThread:4171291 [sender.py:send_request_defer():385] handle sender defer: 1
+2022-05-17 02:33:11,006 INFO    SenderThread:4171291 [sender.py:transition_state():389] send defer: 2
+2022-05-17 02:33:11,006 DEBUG   SenderThread:4171291 [sender.py:send():232] send: stats
+2022-05-17 02:33:11,007 DEBUG   HandlerThread:4171291 [handler.py:handle_request():141] handle_request: defer
+2022-05-17 02:33:11,007 INFO    HandlerThread:4171291 [handler.py:handle_request_defer():164] handle defer: 2
+2022-05-17 02:33:11,007 DEBUG   SenderThread:4171291 [sender.py:send_request():246] send_request: defer
+2022-05-17 02:33:11,007 INFO    SenderThread:4171291 [sender.py:send_request_defer():385] handle sender defer: 2
+2022-05-17 02:33:11,007 INFO    SenderThread:4171291 [sender.py:transition_state():389] send defer: 3
+2022-05-17 02:33:11,007 DEBUG   HandlerThread:4171291 [handler.py:handle_request():141] handle_request: defer
+2022-05-17 02:33:11,007 INFO    HandlerThread:4171291 [handler.py:handle_request_defer():164] handle defer: 3
+2022-05-17 02:33:11,007 DEBUG   SenderThread:4171291 [sender.py:send_request():246] send_request: defer
+2022-05-17 02:33:11,007 INFO    SenderThread:4171291 [sender.py:send_request_defer():385] handle sender defer: 3
+2022-05-17 02:33:11,007 INFO    SenderThread:4171291 [sender.py:transition_state():389] send defer: 4
+2022-05-17 02:33:11,007 DEBUG   HandlerThread:4171291 [handler.py:handle_request():141] handle_request: defer
+2022-05-17 02:33:11,007 INFO    HandlerThread:4171291 [handler.py:handle_request_defer():164] handle defer: 4
+2022-05-17 02:33:11,008 DEBUG   SenderThread:4171291 [sender.py:send():232] send: summary
+2022-05-17 02:33:11,011 INFO    SenderThread:4171291 [sender.py:_save_file():946] saving file wandb-summary.json with policy end
+2022-05-17 02:33:11,012 DEBUG   SenderThread:4171291 [sender.py:send_request():246] send_request: defer
+2022-05-17 02:33:11,012 INFO    SenderThread:4171291 [sender.py:send_request_defer():385] handle sender defer: 4
+2022-05-17 02:33:11,012 INFO    SenderThread:4171291 [sender.py:transition_state():389] send defer: 5
+2022-05-17 02:33:11,012 DEBUG   HandlerThread:4171291 [handler.py:handle_request():141] handle_request: defer
+2022-05-17 02:33:11,012 INFO    HandlerThread:4171291 [handler.py:handle_request_defer():164] handle defer: 5
+2022-05-17 02:33:11,012 DEBUG   SenderThread:4171291 [sender.py:send_request():246] send_request: defer
+2022-05-17 02:33:11,012 INFO    SenderThread:4171291 [sender.py:send_request_defer():385] handle sender defer: 5
+2022-05-17 02:33:11,024 DEBUG   HandlerThread:4171291 [handler.py:handle_request():141] handle_request: poll_exit
+2022-05-17 02:33:11,238 INFO    SenderThread:4171291 [sender.py:transition_state():389] send defer: 6
+2022-05-17 02:33:11,238 DEBUG   SenderThread:4171291 [sender.py:send_request():246] send_request: poll_exit
+2022-05-17 02:33:11,238 DEBUG   HandlerThread:4171291 [handler.py:handle_request():141] handle_request: defer
+2022-05-17 02:33:11,238 INFO    HandlerThread:4171291 [handler.py:handle_request_defer():164] handle defer: 6
+2022-05-17 02:33:11,239 DEBUG   SenderThread:4171291 [sender.py:send_request():246] send_request: defer
+2022-05-17 02:33:11,239 INFO    SenderThread:4171291 [sender.py:send_request_defer():385] handle sender defer: 6
+2022-05-17 02:33:11,239 INFO    SenderThread:4171291 [dir_watcher.py:finish():279] shutting down directory watcher
+2022-05-17 02:33:11,289 INFO    SenderThread:4171291 [dir_watcher.py:_on_file_modified():226] file/dir modified: /baie/nfs-cluster-1/mundus/aelsayed824/data-driven/wandb/run-20220517_023232-u1w71wi3/files/wandb-summary.json
+2022-05-17 02:33:11,289 INFO    SenderThread:4171291 [dir_watcher.py:_on_file_modified():226] file/dir modified: /baie/nfs-cluster-1/mundus/aelsayed824/data-driven/wandb/run-20220517_023232-u1w71wi3/files/output.log
+2022-05-17 02:33:11,289 INFO    SenderThread:4171291 [dir_watcher.py:_on_file_modified():226] file/dir modified: /baie/nfs-cluster-1/mundus/aelsayed824/data-driven/wandb/run-20220517_023232-u1w71wi3/files/config.yaml
+2022-05-17 02:33:11,289 INFO    SenderThread:4171291 [dir_watcher.py:finish():309] scan: /baie/nfs-cluster-1/mundus/aelsayed824/data-driven/wandb/run-20220517_023232-u1w71wi3/files
+2022-05-17 02:33:11,291 INFO    SenderThread:4171291 [dir_watcher.py:finish():323] scan save: /baie/nfs-cluster-1/mundus/aelsayed824/data-driven/wandb/run-20220517_023232-u1w71wi3/files/config.yaml config.yaml
+2022-05-17 02:33:11,291 INFO    SenderThread:4171291 [dir_watcher.py:finish():323] scan save: /baie/nfs-cluster-1/mundus/aelsayed824/data-driven/wandb/run-20220517_023232-u1w71wi3/files/wandb-summary.json wandb-summary.json
+2022-05-17 02:33:11,291 INFO    SenderThread:4171291 [dir_watcher.py:finish():323] scan save: /baie/nfs-cluster-1/mundus/aelsayed824/data-driven/wandb/run-20220517_023232-u1w71wi3/files/requirements.txt requirements.txt
+2022-05-17 02:33:11,295 INFO    SenderThread:4171291 [dir_watcher.py:finish():323] scan save: /baie/nfs-cluster-1/mundus/aelsayed824/data-driven/wandb/run-20220517_023232-u1w71wi3/files/conda-environment.yaml conda-environment.yaml
+2022-05-17 02:33:11,298 INFO    SenderThread:4171291 [dir_watcher.py:finish():323] scan save: /baie/nfs-cluster-1/mundus/aelsayed824/data-driven/wandb/run-20220517_023232-u1w71wi3/files/output.log output.log
+2022-05-17 02:33:11,302 INFO    SenderThread:4171291 [dir_watcher.py:finish():323] scan save: /baie/nfs-cluster-1/mundus/aelsayed824/data-driven/wandb/run-20220517_023232-u1w71wi3/files/wandb-metadata.json wandb-metadata.json
+2022-05-17 02:33:11,302 INFO    SenderThread:4171291 [sender.py:transition_state():389] send defer: 7
+2022-05-17 02:33:11,308 DEBUG   HandlerThread:4171291 [handler.py:handle_request():141] handle_request: defer
+2022-05-17 02:33:11,308 INFO    HandlerThread:4171291 [handler.py:handle_request_defer():164] handle defer: 7
+2022-05-17 02:33:11,309 DEBUG   SenderThread:4171291 [sender.py:send_request():246] send_request: defer
+2022-05-17 02:33:11,309 INFO    SenderThread:4171291 [sender.py:send_request_defer():385] handle sender defer: 7
+2022-05-17 02:33:11,309 INFO    SenderThread:4171291 [file_pusher.py:finish():145] shutting down file pusher
+2022-05-17 02:33:11,339 DEBUG   HandlerThread:4171291 [handler.py:handle_request():141] handle_request: poll_exit
+2022-05-17 02:33:11,340 DEBUG   SenderThread:4171291 [sender.py:send_request():246] send_request: poll_exit
+2022-05-17 02:33:11,441 DEBUG   HandlerThread:4171291 [handler.py:handle_request():141] handle_request: poll_exit
+2022-05-17 02:33:11,441 DEBUG   SenderThread:4171291 [sender.py:send_request():246] send_request: poll_exit
+2022-05-17 02:33:11,543 DEBUG   HandlerThread:4171291 [handler.py:handle_request():141] handle_request: poll_exit
+2022-05-17 02:33:11,544 DEBUG   SenderThread:4171291 [sender.py:send_request():246] send_request: poll_exit
+2022-05-17 02:33:11,650 DEBUG   HandlerThread:4171291 [handler.py:handle_request():141] handle_request: poll_exit
+2022-05-17 02:33:11,650 DEBUG   SenderThread:4171291 [sender.py:send_request():246] send_request: poll_exit
+2022-05-17 02:33:11,751 DEBUG   HandlerThread:4171291 [handler.py:handle_request():141] handle_request: poll_exit
+2022-05-17 02:33:11,751 DEBUG   SenderThread:4171291 [sender.py:send_request():246] send_request: poll_exit
+2022-05-17 02:33:11,853 DEBUG   HandlerThread:4171291 [handler.py:handle_request():141] handle_request: poll_exit
+2022-05-17 02:33:11,853 DEBUG   SenderThread:4171291 [sender.py:send_request():246] send_request: poll_exit
+2022-05-17 02:33:11,924 INFO    Thread-14 :4171291 [upload_job.py:push():137] Uploaded file /baie/nfs-cluster-1/mundus/aelsayed824/data-driven/wandb/run-20220517_023232-u1w71wi3/files/requirements.txt
+2022-05-17 02:33:11,924 INFO    Thread-12 :4171291 [upload_job.py:push():137] Uploaded file /baie/nfs-cluster-1/mundus/aelsayed824/data-driven/wandb/run-20220517_023232-u1w71wi3/files/config.yaml
+2022-05-17 02:33:11,925 INFO    Thread-13 :4171291 [upload_job.py:push():137] Uploaded file /baie/nfs-cluster-1/mundus/aelsayed824/data-driven/wandb/run-20220517_023232-u1w71wi3/files/wandb-summary.json
+2022-05-17 02:33:11,933 INFO    Thread-16 :4171291 [upload_job.py:push():137] Uploaded file /baie/nfs-cluster-1/mundus/aelsayed824/data-driven/wandb/run-20220517_023232-u1w71wi3/files/output.log
+2022-05-17 02:33:11,954 DEBUG   HandlerThread:4171291 [handler.py:handle_request():141] handle_request: poll_exit
+2022-05-17 02:33:11,955 DEBUG   SenderThread:4171291 [sender.py:send_request():246] send_request: poll_exit
+2022-05-17 02:33:11,963 INFO    Thread-15 :4171291 [upload_job.py:push():137] Uploaded file /baie/nfs-cluster-1/mundus/aelsayed824/data-driven/wandb/run-20220517_023232-u1w71wi3/files/conda-environment.yaml
+2022-05-17 02:33:12,056 DEBUG   HandlerThread:4171291 [handler.py:handle_request():141] handle_request: poll_exit
+2022-05-17 02:33:12,056 DEBUG   SenderThread:4171291 [sender.py:send_request():246] send_request: poll_exit
+2022-05-17 02:33:12,157 DEBUG   HandlerThread:4171291 [handler.py:handle_request():141] handle_request: poll_exit
+2022-05-17 02:33:12,158 DEBUG   SenderThread:4171291 [sender.py:send_request():246] send_request: poll_exit
+2022-05-17 02:33:12,163 INFO    Thread-6  :4171291 [sender.py:transition_state():389] send defer: 8
+2022-05-17 02:33:12,163 DEBUG   HandlerThread:4171291 [handler.py:handle_request():141] handle_request: defer
+2022-05-17 02:33:12,163 INFO    HandlerThread:4171291 [handler.py:handle_request_defer():164] handle defer: 8
+2022-05-17 02:33:12,163 DEBUG   SenderThread:4171291 [sender.py:send_request():246] send_request: defer
+2022-05-17 02:33:12,164 INFO    SenderThread:4171291 [sender.py:send_request_defer():385] handle sender defer: 8
+2022-05-17 02:33:12,259 DEBUG   HandlerThread:4171291 [handler.py:handle_request():141] handle_request: poll_exit
+2022-05-17 02:33:12,479 INFO    SenderThread:4171291 [sender.py:transition_state():389] send defer: 9
+2022-05-17 02:33:12,479 DEBUG   SenderThread:4171291 [sender.py:send_request():246] send_request: poll_exit
+2022-05-17 02:33:12,479 DEBUG   HandlerThread:4171291 [handler.py:handle_request():141] handle_request: defer
+2022-05-17 02:33:12,480 INFO    HandlerThread:4171291 [handler.py:handle_request_defer():164] handle defer: 9
+2022-05-17 02:33:12,480 DEBUG   SenderThread:4171291 [sender.py:send_request():246] send_request: defer
+2022-05-17 02:33:12,480 INFO    SenderThread:4171291 [sender.py:send_request_defer():385] handle sender defer: 9
+2022-05-17 02:33:12,480 INFO    SenderThread:4171291 [sender.py:transition_state():389] send defer: 10
+2022-05-17 02:33:12,480 DEBUG   HandlerThread:4171291 [handler.py:handle_request():141] handle_request: defer
+2022-05-17 02:33:12,480 DEBUG   SenderThread:4171291 [sender.py:send():232] send: final
+2022-05-17 02:33:12,481 INFO    HandlerThread:4171291 [handler.py:handle_request_defer():164] handle defer: 10
+2022-05-17 02:33:12,481 DEBUG   SenderThread:4171291 [sender.py:send():232] send: footer
+2022-05-17 02:33:12,481 DEBUG   SenderThread:4171291 [sender.py:send_request():246] send_request: defer
+2022-05-17 02:33:12,481 INFO    SenderThread:4171291 [sender.py:send_request_defer():385] handle sender defer: 10
+2022-05-17 02:33:12,581 DEBUG   HandlerThread:4171291 [handler.py:handle_request():141] handle_request: poll_exit
+2022-05-17 02:33:12,581 DEBUG   SenderThread:4171291 [sender.py:send_request():246] send_request: poll_exit
+2022-05-17 02:33:12,581 INFO    SenderThread:4171291 [file_pusher.py:join():150] waiting for file pusher
+2022-05-17 02:33:13,031 DEBUG   HandlerThread:4171291 [handler.py:handle_request():141] handle_request: sampled_history
+2022-05-17 02:33:13,031 DEBUG   HandlerThread:4171291 [handler.py:handle_request():141] handle_request: get_summary
+2022-05-17 02:33:13,032 DEBUG   HandlerThread:4171291 [handler.py:handle_request():141] handle_request: shutdown
+2022-05-17 02:33:13,032 INFO    HandlerThread:4171291 [handler.py:finish():806] shutting down handler
+2022-05-17 02:33:13,481 INFO    WriterThread:4171291 [datastore.py:close():279] close: /baie/nfs-cluster-1/mundus/aelsayed824/data-driven/wandb/run-20220517_023232-u1w71wi3/run-u1w71wi3.wandb
+2022-05-17 02:33:13,930 INFO    SenderThread:4171291 [sender.py:finish():1106] shutting down sender
+2022-05-17 02:33:13,930 INFO    SenderThread:4171291 [file_pusher.py:finish():145] shutting down file pusher
+2022-05-17 02:33:13,930 INFO    SenderThread:4171291 [file_pusher.py:join():150] waiting for file pusher
+2022-05-17 02:33:13,931 INFO    MainThread:4171291 [internal.py:handle_exit():80] Internal process exited

@@ -1,0 +1,27 @@
+{
+    "os": "Linux-4.18.0-348.20.1.el8_5.x86_64-x86_64-with-glibc2.28",
+    "python": "3.9.7",
+    "heartbeatAt": "2022-05-17T00:38:04.437006",
+    "startedAt": "2022-05-17T00:38:02.464738",
+    "docker": null,
+    "gpu": "NVIDIA GeForce RTX 2080 Ti",
+    "gpu_count": 3,
+    "cpu_count": 40,
+    "cuda": null,
+    "args": [
+        "--cuda",
+        "/mundus/aelsayed824/data-driven/ShopFacade_depth/"
+    ],
+    "state": "running",
+    "program": "/baie/nfs-cluster-1/mundus/aelsayed824/data-driven/main_rnn.py",
+    "codePath": "main_rnn.py",
+    "git": {
+        "remote": "https://github.com/MIR-UTLN-UJI/data-driven.git",
+        "commit": "2fceafddc1325a4b6bba12109aa18769400ec779"
+    },
+    "email": "ahmedharbii10@gmail.com",
+    "root": "/baie/nfs-cluster-1/mundus/aelsayed824/data-driven",
+    "host": "diflives1",
+    "username": "aelsayed824",
+    "executable": "/mundus/aelsayed824/miniconda3/envs/homographyloss/bin/python"
+}

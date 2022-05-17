@@ -10,7 +10,7 @@ class MobileRNN(torch.nn.Module):
         self.linear = torch.nn.Linear(hidden_size, 7)
     
     def forward(self, x):
-        images = [x[:, 3*i:3*(i+1), :, :] for i in range(x.shape[1]/3)]
+        images = [x[:, 3*i:3*(i+1), :, :] for i in range(int(x.shape[1]/3))]
         mn_images = [self.mn(im).unsqueeze(0) for im in images]
         # first_image = x[:, :3, :, :] #batch_size, num_channels (first 3), width, height
         # second_image = x[:, 3:, :, :] #batch_size, num_channels (last 3), width, height

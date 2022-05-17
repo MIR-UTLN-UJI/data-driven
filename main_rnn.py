@@ -8,7 +8,7 @@ import torch
 from torch.utils.data import DataLoader
 from torch.utils.tensorboard import SummaryWriter
 
-import datasets
+import modified_datasets as datasets
 import losses
 import models
 from utils import batch_to_device, batch_errors, batch_compute_utils, log_poses, log_errors
@@ -57,7 +57,7 @@ if __name__ == '__main__':
     model.train()
     model.to(device)
     # 1. Start a new run
-    wandb.init(project="All models - Depth input evolution")
+    wandb.init(project="data-driven")
     wandb.watch(model)
     # 2. Save model inputs and hyperparameters
     config = wandb.config

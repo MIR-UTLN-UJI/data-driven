@@ -1,0 +1,27 @@
+
+Loading images from dataset. This may take a while...
+
+
+
+
+
+
+
+100% 231/231 [00:16<00:00, 14.13it/s]
+  4% 4/103 [00:00<00:07, 13.13it/s]
+Eliminating outliers in image seq2/frame00154.png: [1386/1387] scene coordinates inliers
+Not using image seq2/frame00036.png: [0/46] scene coordinates inliers
+Not using image seq2/frame00043.png: [0/46] scene coordinates inliers
+
+
+
+100% 103/103 [00:07<00:00, 14.36it/s]
+  0% 0/500 [00:00<?, ?it/s]
+Eliminating outliers in image seq1/frame00026.png: [1544/1550] scene coordinates inliers
+Eliminating outliers in image seq3/frame00044.png: [1185/1186] scene coordinates inliers
+Eliminating outliers in image seq1/frame00027.png: [808/814] scene coordinates inliers
+  0% 0/500 [00:28<?, ?it/s]
+Traceback (most recent call last):
+  File "/baie/nfs-cluster-1/mundus/aelsayed824/data-driven/main_rnn.py", line 151, in <module>
+    loss = criterion(batch)
+TypeError: __call__() missing 2 required positional arguments: 'xmin' and 'xmax'

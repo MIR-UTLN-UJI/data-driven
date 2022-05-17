@@ -1,0 +1,40 @@
+
+Loading images from dataset. This may take a while...
+  2%|█▍                                                                               | 4/231 [00:00<00:32,  6.98it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 94%|█████████████████████████████████████████████████████████████████████████▊     | 216/231 [00:28<00:01,  8.60it/s]
+Not using image seq2/frame00036.png: [0/46] scene coordinates inliers
+Not using image seq2/frame00043.png: [0/46] scene coordinates inliers
+100%|███████████████████████████████████████████████████████████████████████████████| 231/231 [00:30<00:00,  7.57it/s]
+
+
+
+ 54%|███████████████████████████████████████████▍                                    | 56/103 [00:06<00:05,  9.07it/s]
+Eliminating outliers in image seq1/frame00026.png: [1544/1550] scene coordinates inliers
+
+
+ 91%|█████████████████████████████████████████████████████████████████████████       | 94/103 [00:10<00:01,  8.97it/s]
+Eliminating outliers in image seq1/frame00027.png: [808/814] scene coordinates inliers
+100%|███████████████████████████████████████████████████████████████████████████████| 103/103 [00:11<00:00,  9.08it/s]
+  0%|                                                                                         | 0/500 [00:01<?, ?it/s]
+Traceback (most recent call last):
+  File "/baie/nfs-cluster-1/mundus/aelsayed824/data-driven/main_rnn.py", line 142, in <module>
+    batch['w_t_chat'], batch['chat_q_w'] = model(batch['image']).split([3, 4], dim=1)
+  File "/mundus/aelsayed824/miniconda3/envs/homographyloss/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/baie/nfs-cluster-1/mundus/aelsayed824/data-driven/models.py", line 13, in forward
+    images = [x[:, 3*i:3*(i+1), :, :] for i in range(x.shape[1]/3)]
+TypeError: 'float' object cannot be interpreted as an integer

@@ -1,0 +1,63 @@
+
+Loading images from dataset. This may take a while...
+
+
+
+
+
+
+
+
+
+ 97% 223/231 [00:18<00:00, 12.80it/s]
+Eliminating outliers in image seq2/frame00154.png: [1386/1387] scene coordinates inliers
+Not using image seq2/frame00036.png: [0/46] scene coordinates inliers
+Not using image seq2/frame00043.png: [0/46] scene coordinates inliers
+100% 231/231 [00:18<00:00, 12.27it/s]
+
+
+
+ 88% 91/103 [00:07<00:00, 12.44it/s]
+Eliminating outliers in image seq1/frame00026.png: [1544/1550] scene coordinates inliers
+Eliminating outliers in image seq3/frame00044.png: [1185/1186] scene coordinates inliers
+Eliminating outliers in image seq1/frame00027.png: [808/814] scene coordinates inliers
+100% 103/103 [00:08<00:00, 12.37it/s]
+  0% 0/500 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "/baie/nfs-cluster-1/mundus/aelsayed824/data-driven/main_rnn.py", line 142, in <module>
+    batch['w_t_chat'], batch['chat_q_w'] = model(batch['image']).split([3, 4], dim=1)
+  File "/mundus/aelsayed824/miniconda3/envs/homographyloss/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/baie/nfs-cluster-1/mundus/aelsayed824/data-driven/models.py", line 14, in forward
+    mn_images = [self.mn(im).unsqueeze(0) for im in images]
+  File "/baie/nfs-cluster-1/mundus/aelsayed824/data-driven/models.py", line 14, in <listcomp>
+    mn_images = [self.mn(im).unsqueeze(0) for im in images]
+  File "/mundus/aelsayed824/miniconda3/envs/homographyloss/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/mundus/aelsayed824/miniconda3/envs/homographyloss/lib/python3.9/site-packages/torchvision/models/mobilenetv2.py", line 200, in forward
+    return self._forward_impl(x)
+  File "/mundus/aelsayed824/miniconda3/envs/homographyloss/lib/python3.9/site-packages/torchvision/models/mobilenetv2.py", line 192, in _forward_impl
+    x = self.features(x)
+  File "/mundus/aelsayed824/miniconda3/envs/homographyloss/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/mundus/aelsayed824/miniconda3/envs/homographyloss/lib/python3.9/site-packages/torch/nn/modules/container.py", line 139, in forward
+    input = module(input)
+  File "/mundus/aelsayed824/miniconda3/envs/homographyloss/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/mundus/aelsayed824/miniconda3/envs/homographyloss/lib/python3.9/site-packages/torchvision/models/mobilenetv2.py", line 100, in forward
+    return self.conv(x)
+  File "/mundus/aelsayed824/miniconda3/envs/homographyloss/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/mundus/aelsayed824/miniconda3/envs/homographyloss/lib/python3.9/site-packages/torch/nn/modules/container.py", line 139, in forward
+    input = module(input)
+  File "/mundus/aelsayed824/miniconda3/envs/homographyloss/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/mundus/aelsayed824/miniconda3/envs/homographyloss/lib/python3.9/site-packages/torch/nn/modules/container.py", line 139, in forward
+    input = module(input)
+  File "/mundus/aelsayed824/miniconda3/envs/homographyloss/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/mundus/aelsayed824/miniconda3/envs/homographyloss/lib/python3.9/site-packages/torch/nn/modules/conv.py", line 443, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/mundus/aelsayed824/miniconda3/envs/homographyloss/lib/python3.9/site-packages/torch/nn/modules/conv.py", line 439, in _conv_forward
+    return F.conv2d(input, weight, bias, self.stride,
+RuntimeError: CUDA out of memory. Tried to allocate 684.00 MiB (GPU 0; 10.76 GiB total capacity; 8.96 GiB already allocated; 618.56 MiB free; 9.03 GiB reserved in total by PyTorch)
