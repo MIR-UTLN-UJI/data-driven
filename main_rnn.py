@@ -25,7 +25,7 @@ if __name__ == '__main__':
         default='global_homography'
     )
     parser.add_argument('--epochs', help='number of epochs for training', type=int, default=500)
-    parser.add_argument('--batch_size', help='training batch size', type=int, default=64)
+    parser.add_argument('--batch_size', help='training batch size', type=int, default=32)
     parser.add_argument('--input_size', help='RNN input size', type=int, default=1024)
     parser.add_argument('--hidden_size', help='RNN hidden size', type=int, default=32)
     parser.add_argument('--num_layers', help='RNN number of layers', type=int, default=2)
@@ -55,6 +55,7 @@ if __name__ == '__main__':
     #output_size here is the
     model = models.MobileRNN(args.weights, output_size=args.input_size,\
          hidden_size=args.hidden_size, num_layers=args.num_layers)
+    model = torch.nn.DataParallel(model)
     model.train()
     model.to(device)
     # 1. Start a new run

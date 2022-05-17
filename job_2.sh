@@ -2,7 +2,7 @@
 
 #SBATCH --time=12:00:00
 #SBATCH --partition=gpu
-#SBATCH --gres=gpu:2080:1
+#SBATCH --gres=gpu:2080:3
 #SBATCH --job-name=homography_training
 #SBATCH --output=homography_training.out
 #SBATCH --error=homography_training.err
