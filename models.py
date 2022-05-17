@@ -15,7 +15,7 @@ class MobileRNN(torch.nn.Module):
         seq_len = int(nc/3)
         images = x.view(bs*seq_len,3,w,h)
         # mn_images = [self.mn(im).unsqueeze(0) for im in images]
-        mn_images_concatenated = self.mn(images).view(seq_len, bs, 3, -1)
+        mn_images_concatenated = self.mn(images).view(seq_len, bs, -1)
         # first_image = x[:, :3, :, :] #batch_size, num_channels (first 3), width, height
         # second_image = x[:, 3:, :, :] #batch_size, num_channels (last 3), width, height
         # mn_first_image = self.mn(first_image).unsqueeze(0)
