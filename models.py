@@ -10,14 +10,18 @@ class MobileRNN(torch.nn.Module):
         self.linear = torch.nn.Linear(hidden_size, 7)
     
     def forward(self, x):
-        images = [x[:, 3*i:3*(i+1), :, :] for i in range(int(x.shape[1]/3))]
-        mn_images = [self.mn(im).unsqueeze(0) for im in images]
+        # images = [x[:, 3*i:3*(i+1), :, :] for i in range(int(x.shape[1]/3))]
+        bs, nc, w, h = x.shape
+        seq_len = int(nc/3)
+        images = torch.Tensor.view(bs*seq_len,3,w,h)
+        # mn_images = [self.mn(im).unsqueeze(0) for im in images]
+        mn_images_concatenated = self.mn(images).view(seq_len, bs, 3, -1)
         # first_image = x[:, :3, :, :] #batch_size, num_channels (first 3), width, height
         # second_image = x[:, 3:, :, :] #batch_size, num_channels (last 3), width, height
         # mn_first_image = self.mn(first_image).unsqueeze(0)
         # mn_second_image = self.mn(second_image).unsqueeze(0)
         # mn_image_first_second = torch.cat((mn_first_image,mn_second_image), dim=0)
-        mn_images_concatenated= torch.cat(mn_images, dim=0)
+        # mn_images_concatenated= torch.cat(mn_images, dim=0)
         out, hn = self.rnn(mn_images_concatenated)
         pose = self.linear(out[-1]) # take output of last time step
         return pose
