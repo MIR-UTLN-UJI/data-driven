@@ -47,15 +47,15 @@ def load_model(weights_path=None, device = 'cuda:0', output_size=7):
         torch.nn.ReLU(),
         torch.nn.Linear(
             in_features=in_features,
-            out_features=output_size,
+            out_features=2048,
             bias=True
         ),
         torch.nn.ReLU(),
-        # torch.nn.Linear(
-        #     in_features=2048,
-        #     out_features=output_size,
-        #     bias=True
-        # )
+        torch.nn.Linear(
+            in_features=2048,
+            out_features=output_size,
+            bias=True
+        )
     )
 
     if weights_path is not None:
