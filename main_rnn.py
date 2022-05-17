@@ -22,7 +22,7 @@ if __name__ == '__main__':
     parser.add_argument(
         '--loss', help='loss function for training',
         choices=['local_homography', 'global_homography', 'posenet', 'homoscedastic', 'geometric', 'dsac'],
-        default='local_homography'
+        default='global_homography'
     )
     parser.add_argument('--epochs', help='number of epochs for training', type=int, default=500)
     parser.add_argument('--batch_size', help='training batch size', type=int, default=64)
@@ -52,6 +52,7 @@ if __name__ == '__main__':
         device = 'cuda'
 
     # Load model
+    #output_size here is the
     model = models.MobileRNN(args.weights, output_size=args.input_size,\
          hidden_size=args.hidden_size, num_layers=args.num_layers)
     model.train()
