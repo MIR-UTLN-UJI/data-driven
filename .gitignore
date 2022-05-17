@@ -4,3 +4,8 @@ __pycache__/*
 datasets/*
 ShopFacade_depth/*
 *.zip
+*.log
+*.err
+*.out
+*.pyc
+wandb/*
