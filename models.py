@@ -15,7 +15,7 @@ class MobileRNN(torch.nn.Module):
         seq_len = int(nc/3)
         images = x.view(bs*seq_len,3,w,h)
         # mn_images = [self.mn(im).unsqueeze(0) for im in images]
-        mn_images_concatenated = self.mn(images).view(bs, seq_len, -1).transpose(1, 0, 2)
+        mn_images_concatenated = self.mn(images).view(bs, seq_len, -1).transpose(0, 1)
         # first_image = x[:, :3, :, :] #batch_size, num_channels (first 3), width, height
         # second_image = x[:, 3:, :, :] #batch_size, num_channels (last 3), width, height
         # mn_first_image = self.mn(first_image).unsqueeze(0)
@@ -47,15 +47,15 @@ def load_model(weights_path=None, device = 'cuda:0', output_size=7):
         torch.nn.ReLU(),
         torch.nn.Linear(
             in_features=in_features,
-            out_features=2048,
+            out_features=output_size,
             bias=True
         ),
         torch.nn.ReLU(),
-        torch.nn.Linear(
-            in_features=2048,
-            out_features=output_size,
-            bias=True
-        )
+        # torch.nn.Linear(
+        #     in_features=2048,
+        #     out_features=output_size,
+        #     bias=True
+        # )
     )
 
     if weights_path is not None:
