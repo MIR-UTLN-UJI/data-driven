@@ -1,0 +1,24 @@
+{
+    "os": "Linux-5.4.0-110-generic-x86_64-with-glibc2.31",
+    "python": "3.9.7",
+    "heartbeatAt": "2022-05-16T23:42:21.517195",
+    "startedAt": "2022-05-16T23:42:19.933194",
+    "docker": null,
+    "cpu_count": 8,
+    "cuda": null,
+    "args": [
+        "/home/mrblack/Documents/GitHub/data-driven/ShopFacade_depth/"
+    ],
+    "state": "running",
+    "program": "/home/mrblack/Documents/GitHub/data-driven/main_rnn.py",
+    "codePath": "main_rnn.py",
+    "git": {
+        "remote": "https://github.com/MIR-UTLN-UJI/data-driven.git",
+        "commit": "022c6da661fec539209c86846db74b041567d1c8"
+    },
+    "email": "ahmedharbii10@gmail.com",
+    "root": "/home/mrblack/Documents/GitHub/data-driven",
+    "host": "mrblack",
+    "username": "mrblack",
+    "executable": "/home/mrblack/anaconda3/envs/homographyloss/bin/python"
+}
