@@ -91,6 +91,12 @@ We changed the the input layer of the model by adding another channel in the fir
 
 We trained all of the above models for 500 epochs. The obtained events files are saved in all_logs folder which can be used by tensorboard to visalize and analyze the results by simply navigating to all_logs folder and then write: tensorboard --logdir <name of the log folder>
  
-We also created bash files to be sent to the cluster to run these models. These bash scipts can be found in jobs folder 
+We also created bash files to be sent to the cluster to run these models. These bash scipts can be found in jobs folder.
+
+## The RNN architecture
+
+To use the RNN architecture, use the 'rnn' branch not the master branch
+and run the main_rnn.py file instead of main.py
+
 
 Thank you
