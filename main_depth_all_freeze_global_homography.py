@@ -9,7 +9,7 @@ import torch
 from torch.utils.data import DataLoader
 from torch.utils.tensorboard import SummaryWriter
 
-import datasets
+import datasets_depth as datasets
 import losses
 import models
 from utils import batch_to_device, batch_errors, batch_compute_utils, log_poses, log_errors
